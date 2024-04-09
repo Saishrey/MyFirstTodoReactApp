@@ -77,7 +77,7 @@ export default function Todo() {
 
   return (
     <div>
-      <h1>Todo Tasks</h1>
+      <h1 className='text-[3rem] font-bold text-blue-700'>Todo Tasks</h1>
       <div >
         <form onSubmit={isUpdating ? updateTask : addTask} className='flex flex-col gap-1'>
           <input ref={titleRef} required type='text' placeholder='Title' className='border p-2 rounded' name='title' />
