@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react'
 import { todoItems as t } from '../data/todo_data'
 import { MdDeleteForever } from "react-icons/md";
+import Task from './Task';
 
 
 export default function Todo() {
@@ -88,18 +89,7 @@ export default function Todo() {
       <h1 className='my-2'>Double tap on task to update</h1>
       <ul>
         {todoItems && todoItems.map((item, index) => (
-          <li key={index}>
-            <div className="flex flex-row justify-center items-center my-3">
-                <div className="bg-blue-400 rounded mr-1 w-full p-1" onDoubleClick={() => handleDoubleClick(item)}>
-                    <h1>{item.title}</h1>
-                    <h1>{item.description}</h1>
-                </div>
-
-                <button onClick={() => handleDelete(item.title)} className='bg-red-600  p-5 rounded border hover:bg-red-500 active:bg-pink-600'>
-                    <MdDeleteForever color='white' />
-                </button>
-            </div>
-        </li>
+          <Task item={item} handleDoubleClick={handleDoubleClick} handleDelete={handleDelete} key={index}/>
         )
         )}
       </ul>
